@@ -8,6 +8,7 @@ var url=require('url');
 http.createServer(function (req,res) {
     //取得了客户端的请求路径
     var pathname=url.parse(req.url).pathname;  //url=路径名+查询字符串
+    res.setHeader('Content-Type','text/plain;charset=utf-8');
     if(pathname=='/'){
         res.end('首页');
     }else if(pathname=='/login'){
