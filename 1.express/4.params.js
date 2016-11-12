@@ -19,6 +19,7 @@ app.get('/',function(req,res){
  res.end('1');
  });*/
 //获取某个用户的信息 :id是占位符 匹配一个字符串 /users/1
+
 app.get('/users/:id',function(req,res){
     //params是express帮我们添加的对象属性，属性名就是占位符，值是实际请求的字符串占位符对应的部分
     res.end('id='+req.params.id);
