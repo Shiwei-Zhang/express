@@ -1,6 +1,22 @@
 var express=require('express');
 
+
 var app=express();
+
+//使用中间件
+//next是一个函数，如果调用他表示此中间件执行完毕，可以继续向下执行
+//可以把公共的代码写在中间件里面
+/*
+* 1.增加公共的方法和属性
+* 2.进行公共的处理
+* */
+app.use(function(req,res,next){
+    res.setHeader('Content-Type','text/plain;charset=utf-8');
+    next();
+});
+
+
+
 //当客户端通过GET的请求方式，访问/路径的时候
 app.get('/',function(req,res){//请求方式和请求路径
     res.end('首页')
@@ -33,7 +49,7 @@ app.all('*',function(req,res){
 
 //npm install nrm -g  切换源
 
-//npm ls
+//npm ls   查看源  *代表当前所在的源
 //nrm test
 //nrm user <>
 
