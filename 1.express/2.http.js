@@ -9,10 +9,13 @@ http.createServer(function (req,res) {
     //取得了客户端的请求路径
     var pathname=url.parse(req.url).pathname;  //url=路径名+查询字符串
     if(pathname=='/'){
-        res.end();
+        res.end('首页');
+    }else if(pathname=='/login'){
+        res.end('登录');
+    }else if(pathname=='/user'){
+        res.end('用户主页');
+    }else {
+        res.end(`Cannot ${req.method} ${pathname}`);//${pathname} 变量
     }
 
-
-
-
-});
+}).listen(9090);
